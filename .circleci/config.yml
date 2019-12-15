@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:12.6
+      - image: circleci/node:7.10
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -26,7 +26,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm ci
+      - run: npm install
 
       - save_cache:
           paths:
@@ -38,7 +38,7 @@ jobs:
         - chmod 600 /tmp/git_deploy_key
         - eval "$(ssh-agent -s)"
         - DISPLAY=":0.0" SSH_ASKPASS="/tmp/askpass" setsid ssh-add /tmp/git_deploy_key </dev/null
-
+        
     #   - run:
     #     # Decrypt the git_deploy_key.enc key into /tmp/git_deploy_key
     #     - openssl aes-256-cbc -d -K $REPO_ENC_KEY -iv $REPO_ENC_IV -in git_deploy_key.enc -out /tmp/git_deploy_key
