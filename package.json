@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/juliuscc/semantic-release-deploy-key-test#readme",
   "devDependencies": {
-    "semantic-release": "^15.13.31"
+    "semantic-release": "^15.13.32"
   },
   "release": {
     "plugins": [
